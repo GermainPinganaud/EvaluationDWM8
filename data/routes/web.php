@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'BaseController@helloworld');
+Route::get('/helloworld', 'BaseController@helloworld');
+Route::get('/laravel', 'BaseController@laravel');
+Route::get('/liste', 'ListController@index');

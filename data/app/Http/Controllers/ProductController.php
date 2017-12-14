@@ -25,4 +25,19 @@ class ProductController extends Controller
     $product->delete();
     return redirect('/read');
   }
+  public function updateOne(Request $request, $id)
+  {
+    $product = Product::find($id);
+    return view('/update', ['product' => $product]);
+  }
+  public function updateOneAction(Request $request)
+  {
+    $project = Project::find($request->id);
+    dd($request);
+    $project->name = $request->name;
+    $project->reference = $request->reference;
+    $project->quantity = $request->quantity;
+    $project->save();
+    return redirect('/read');
+  }
 }

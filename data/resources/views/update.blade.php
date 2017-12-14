@@ -29,7 +29,7 @@
             <td>{{ $product->type }}</td>
             <td>{{ $product->quantity }}</td>
             <td>
-              {!! Form::open(['url' => '/update/{{ $id }}']) !!} {{-- TODO : passer un id sans balise php --}}
+              {!! Form::open(['url' => '/update/{{ $id }}']) !!}
               {!! Form::submit('Editer');!!}
               {!! Form::close() !!}
             <td>
@@ -38,20 +38,20 @@
               {!! Form::close() !!}
             </td>
           </tr>
-          {!! Form::close() !!}
-      @endforeach
-      <tr class="table-active">
-        <tr>
-          {!! Form::open(['url' => '/create']) !!}
-          <th scope="row">{!! Form::text('reference');!!}</th>
-          <td>{!! Form::text('name');!!}</td>
-          <td>{!! Form::select('brand');!!}</td>
-          <td>{!! Form::select('type');!!}</td>
-          <td>{!! Form::number('quantity');!!}</td>
-          <td>{!! Form::submit('Ajouter');!!}</td>
-          <td> </td>
+          @if($key == $project->state_id)
+            <tr class="table-active">
+            {!! Form::open(['url' => '/create']) !!}
+            <th scope="row">{!! Form::text('reference');!!}</th>
+            <td>{!! Form::text('name');!!}</td>
+            <td>{!! Form::select('brand');!!}</td>
+            <td>{!! Form::select('type');!!}</td>
+            <td>{!! Form::number('quantity');!!}</td>
+            <td>{!! Form::submit('Ajouter');!!}</td>
+            <td> </td>
+          @endif
           {!! Form::close() !!}
         </tr>
+      @endforeach
     </tbody>
   </table>
 @endsection

@@ -11,6 +11,7 @@
     </title>
   </head>
   <body>
+    <header>@include('layouts.menu')</header>
     <h1>@section('title')
       Musiquenstock
     @show

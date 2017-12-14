@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product as Product;
 
-class ListController extends Controller
+class CreateController extends Controller
 {
-  public function index() {
-
+  public function create()
+  {
     $products = Product::all();
-    return view('list', ['products' => $products ]);
+    return view('/', ['products' => $products ]);
   }
 }

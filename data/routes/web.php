@@ -5,13 +5,19 @@
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| 1. Routes de test
+| 2. Routes de CRUD
 |
 */
-
-Route::get('/', 'BaseController@helloworld');
+/* 1. Routes de test */
 Route::get('/helloworld', 'BaseController@helloworld');
 Route::get('/laravel', 'BaseController@laravel');
-Route::get('/liste', 'ListController@index');
+
+/* 2. Routes de CRUD */
+/* C -- Create */
+Route::post('/create', 'ProductController@insertOne');
+/* R -- Read */
+Route::get('/read', 'ReadController@show');
+/* U -- Update */
+/* D -- Delete */
+Route::post('/delete/{id}', 'ProductController@deleteOne');

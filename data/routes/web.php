@@ -18,7 +18,7 @@ Route::get('/laravel', 'BaseController@laravel');
 /* C -- Create */
 Route::post('/create', 'ProductController@insertOne');
 /* R -- Read */
-Route::get('/read', 'ReadController@show');
+Route::get('/read', 'ProductController@read');
 /* U -- Update */
 Route::post('/update/{id}', 'ProductController@updateOne');
 /* D -- Delete */

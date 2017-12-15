@@ -21,36 +21,35 @@
     <tbody>
       <tr class="table-active">
         @foreach ($products as $product)
-          <tr>
-            <th scope="row">{{ $product->reference }}</th>
-            {{ $id = $product->id }}
-            <td>{{ $product->name }}</td>
-            <td>{{ $product->brand }}</td>
-            <td>{{ $product->type }}</td>
-            <td>{{ $product->quantity }}</td>
-            <td>
-              {!! Form::open(['url' => '/update/{{ $id }}']) !!}
-              {!! Form::submit('Editer');!!}
-              {!! Form::close() !!}
-            <td>
-              {!! Form::open(['url' => '/delete/{{ $id }}']) !!}
-              {!! Form::submit('Supprimer');!!}
-              {!! Form::close() !!}
-            </td>
-          </tr>
-          @if($key == $project->state_id)
+          @if($id == $product->id)
             <tr class="table-active">
-            {!! Form::open(['url' => '/create']) !!}
-            <th scope="row">{!! Form::text('reference');!!}</th>
-            <td>{!! Form::text('name');!!}</td>
-            <td>{!! Form::select('brand');!!}</td>
-            <td>{!! Form::select('type');!!}</td>
-            <td>{!! Form::number('quantity');!!}</td>
-            <td>{!! Form::submit('Ajouter');!!}</td>
-            <td> </td>
+              {!! Form::open(['url' => '/create']) !!}
+              <th scope="row">{!! Form::text('reference', $product->reference);!!}</th>
+              <td>{!! Form::text('name', $product->name);!!}</td>
+              <td>{!! Form::select('brand');!!}</td>
+              <td>{!! Form::select('type');!!}</td>
+              <td>{!! Form::number('quantity', $product->quantity);!!}</td>
+              <td>
+                {!! Form::submit('Valider');!!}
+                {!! Form::close() !!}
+              </td>
+              <td>
+                {!! Form::open(['url' => '/create']) !!}
+                {!! Form::submit('Valider');!!}
+                {!! Form::close() !!}
+              </td>
+          @else
+              <tr>
+                <th scope="row">{{ $product->reference }}</th>
+                <td>{{ $product->name }}</td>
+                <td>{{ $product->brand }}</td>
+                <td>{{ $product->type }}</td>
+                <td>{{ $product->quantity }}</td>
+                <td> </td>
+                <td> </td>
+              </tr>
           @endif
-          {!! Form::close() !!}
-        </tr>
+            </tr>
       @endforeach
     </tbody>
   </table>

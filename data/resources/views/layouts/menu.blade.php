@@ -6,10 +6,13 @@
   <div class="collapse navbar-collapse" id="navbarColor01">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/read')}}">Ajouter un produit</a>
+        <a class="nav-link" href="{{ url('/read')}}">Liste des produits</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/read')}}">Liste des produits</a>
+        <a class="nav-link" href="{{ url('/helloworld')}}">Hello World! </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://shop.fender.com/fr-FR/electric-guitars/" target="_blank">Guitares Fender</a>
       </li>
     </ul>
   </div>

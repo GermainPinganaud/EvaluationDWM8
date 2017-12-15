@@ -23,19 +23,23 @@
         @foreach ($products as $product)
           <tr>
             <th scope="row">{{ $product->reference }}</th>
-            {{ $id = $product->id }}
             <td>{{ $product->name }}</td>
             <td>{{ $product->brand }}</td>
             <td>{{ $product->type }}</td>
             <td>{{ $product->quantity }}</td>
             <td>
-              {!! Form::open(['url' => '/update/{{ $id }}']) !!} {{-- TODO : passer un id sans balise php --}}
-              {!! Form::submit('Editer');!!}
-              {!! Form::close() !!}
+              <div>
+                {{ Form::open(['action' => ['ProductController@updateOne', $product->id]])}}
+                {!! Form::submit('Editer');!!}
+                {!! Form::close() !!}
+              </div>
+            </td>
             <td>
-              {!! Form::open(['url' => '/delete/{{ $id }}']) !!}
-              {!! Form::submit('Supprimer');!!}
-              {!! Form::close() !!}
+              <div class="col-sm-1">
+                {{ Form::open(['action' => ['ProductController@deleteOne', $product->id]])}}
+                {!! Form::submit('Supprimer');!!}
+                {!! Form::close() !!}
+              </div>
             </td>
           </tr>
           {!! Form::close() !!}

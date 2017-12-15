@@ -49,8 +49,8 @@
           {!! Form::open(['url' => '/create']) !!}
           <th scope="row">{!! Form::text('reference');!!}</th>
           <td>{!! Form::text('name');!!}</td>
-          <td>{!! Form::select('brand', $brands);!!}</td>
-          <td>{!! Form::select('category', $categories) !!}</td>
+          <td>{!! Form::select('brand');!!}</td>
+          <td>{!! Form::select('type');!!}</td>
           <td>{!! Form::number('quantity');!!}</td>
           <td>{!! Form::submit('Ajouter');!!}</td>
           <td> </td>

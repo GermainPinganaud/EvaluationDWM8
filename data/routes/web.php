@@ -18,6 +18,7 @@ Route::get('/laravel', 'BaseController@laravel');
 /* C -- Create */
 Route::post('/create', 'ProductController@insertOne');
 /* R -- Read */
+Route::get('/saferead', 'ProductController@saferead');
 Route::get('/read', 'ProductController@read');
 Route::post('/read', 'ProductController@read');
 /* U -- Update */

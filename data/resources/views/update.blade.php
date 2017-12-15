@@ -27,8 +27,8 @@
               <th scope="row">{!! Form::text('reference', $product->reference);!!}</th>
               {{ Form::hidden('id', $product->id) }}
               <td>{!! Form::text('name', $product->name);!!}</td>
-              <td>{!! Form::select('brand');!!}</td>
-              <td>{!! Form::select('type');!!}</td>
+              <td>{!! Form::select('brand', $brands);!!}</td>
+              <td>{!! Form::select('category', $categories);!!}</td>
               <td>{!! Form::number('quantity', $product->quantity);!!}</td>
               <td>
                 {!! Form::submit('Valider');!!}

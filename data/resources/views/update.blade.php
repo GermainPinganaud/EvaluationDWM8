@@ -23,8 +23,9 @@
         @foreach ($products as $product)
           @if($id == $product->id)
             <tr class="table-active">
-              {!! Form::open(['url' => '/create']) !!}
+              {{ Form::open(['action' => ['ProductController@updateOneAction', $product->id]])}}
               <th scope="row">{!! Form::text('reference', $product->reference);!!}</th>
+              {{ Form::hidden('id', $product->id) }}
               <td>{!! Form::text('name', $product->name);!!}</td>
               <td>{!! Form::select('brand');!!}</td>
               <td>{!! Form::select('type');!!}</td>
@@ -34,8 +35,8 @@
                 {!! Form::close() !!}
               </td>
               <td>
-                {!! Form::open(['url' => '/create']) !!}
-                {!! Form::submit('Valider');!!}
+                {{ Form::open(['action' => ['ProductController@read', $product->id]])}}
+                {!! Form::submit('Annuler');!!}
                 {!! Form::close() !!}
               </td>
           @else
